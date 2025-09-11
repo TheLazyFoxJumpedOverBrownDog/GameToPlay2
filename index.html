@@ -1,56 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- 
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
-
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="https://glitch.com/favicon.ico" />
-
-  <!--
-      This is the page head - it contains info the browser uses
-      Like the title, which appears on the browser tab but not inside the page
-      Further down you'll see the content that displays in the page
-    -->
-  <title>Hello World!</title>
-
-  <!-- The website stylesheet -->
-  <link rel="stylesheet" href="/style.css" />
-
-  <!-- The website JavaScript file -->
-  <script src="/script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="https://www.bing.com/th/id/OIP.hbD9pSp0rXYQ3oXrjN6rEAHaHa?w=200&h=211&c=8&rs=1&qlt=90&o=6&cb=thwsc5&dpr=1.1&pid=3.1&rm=2" />
+  <title>Apples & Bananas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #1e1e1e;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    h2.section-title {
+      margin: 0.5rem auto 0.7rem; /* tighter spacing */
+      padding: 0.5rem 1rem;
+      font-size: 2rem;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(90deg, #ff004c, #ff2222);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      width: fit-content;
+    }
+    .game-list {
+      background: #111;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem auto; /* slightly reduced */
+      padding: 1.2rem 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+    .game-link {
+      display: block;
+      text-decoration: none;
+      padding: 1.2rem;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1.2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+    .game-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+    }
+    .at2 { background: rgb(34, 28, 23); }
+    .bstars { background: rgb(156, 73, 34); }
+    .soccer { background: rgb(63, 218, 97); }
+    .bitlife { background: rgb(170, 20, 20); }
+    .swc { background: rgb(11, 112, 56); }
+    .ovo { background: rgb(143, 143, 143); }
+    .drive-mad { background: rgb(23, 171, 197); }
+    footer {
+      margin-top: 1rem; /* closer to game list */
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+    }
+  </style>
 </head>
-
 <body>
-  <!--
-      The body includes the content you see in the page
-      Each element is defined using tags, like this <div></div>
-      The attributes like class="wrapper" let us style elements in the CSS
-    -->
-  <div class="wrapper">
-    <div class="content" role="main">
-      <h1 class="title">Oh hi website!</h1>
-      <img src="/cool-website.svg" class="illustration" alt="cool website" />
-      <div class="instructions">
-        <p>
-          Fork <a href="https://github.com/glitchdotcom/website-to-compute">this project</a> and open it in a GitHub Codespace.
-        </p>
-        <p> Follow the steps in the README to deploy your new website to Fastly in a few steps!
-        </p>
+  <header>
+    <h1>Games</h1>
+    <p>Pick a game below to start playing</p>
+    <p>These games have been tested to make sure they work properly on iPads.</p>
+  </header>
 
-      </div>
+  <h2 class="section-title">Top Games!</h2>
 
-      <footer class="footer">
-        <div>
-          <a class="remix" href="https://github.com/glitchdotcom/website-to-compute">🚧 Get your own site</a>
-        </div>
-      </footer>
-    </div>
-  </div>
+  <main class="game-list">
+    <a class="game-link at2" href="games/awesometanks2/index.html" target="_self">🎖️ Awesome Tanks 2 🛦</a>
+    <a class="game-link bstars" href="games/basketball-stars/index.html" target="_self">🏀 Basketball Stars 🏀</a>
+    <a class="game-link soccer" href="games/slsoccer/index.html" target="_self">⚽ Super Liquid Soccer 🥅</a>
+    <a class="game-link bitlife" href="games/bitlife/bitlife.html" target="_self">🧬 BitLife 🧬</a>
+    <a class="game-link swc" href="games/smallworldcup/index.html" target="_self">⚽ A Small World Cup ⚽</a>
+    <a class="game-link ovo" href="games/OVO/index.html" target="_self">OVO</a>
+    <a class="game-link drive-mad" href="games/drive-mad/index.html" target="_self">🚗Drive Mad😡</a>
+  </main>
+
+  <footer>
+    <p>🎮 This is held together by hopes & dreams SO one mistake can destroy everything. 🎮</p>
+  </footer>
 </body>
-
 </html>
