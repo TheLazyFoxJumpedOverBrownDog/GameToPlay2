@@ -1,0 +1,26 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = ["you@example.com"]
+description = "Fastly Compute static site"
+language = "javascript"
+manifest_version = 3
+name = "TheLazyFoxJumpedOverBrownDog-GameToPlay2"
+service_id = "VllQdr5feqIxwdB2QFvRtg"
+
+[local_server]
+
+  [local_server.kv_stores]
+
+    [local_server.kv_stores.TheLazyFoxJumpedOverBrownDog-GameToPlay2-content]
+      file = "./static-publisher/kvstore.json"
+      format = "json"
+
+[scripts]
+  build = "npm run build"
+
+[setup]
+
+  [setup.kv_stores]
+
+    [setup.kv_stores.TheLazyFoxJumpedOverBrownDog-GameToPlay2-content]
