@@ -1,103 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="https://www.bing.com/th/id/OIP.hbD9pSp0rXYQ3oXrjN6rEAHaHa?w=200&h=211&c=8&rs=1&qlt=90&o=6&cb=thwsc5&dpr=1.1&pid=3.1&rm=2" />
   <title>Apples & Bananas</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      background: #1e1e1e;
+      background: linear-gradient(135deg, #1e1e1e, #121212);
       color: #fff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
+
+    /* NAVBAR */
+    nav {
+      background: linear-gradient(135deg, #0a0a0a, #151515);
+      padding: 0.8rem 2rem;
+      display: flex;
+      gap: 3rem;
+      font-weight: 600;
+      position: relative;
+      box-shadow: 5px 2px 2px rgba(53, 66, 63, 0.6);
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #222;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 0.8rem;
+      position: relative;
+      transition: color 0.25s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: #31db94;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #31db94;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* DROPDOWN */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 170%;
+      left: 45%;
+      transform: translateX(-50%) translateY(-50px);
+      background: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+      width: 220px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .dropdown-content.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-content a {
+      padding: 0.9rem 1rem;
+      color: #eee;
+      text-align: center;
+      display: block;
+      border-bottom: 1px solid #2a2a2a;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .dropdown-content a:hover {
+      background: #222;
+      color: #31db94;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
     header {
       padding: 2rem;
       text-align: center;
     }
+
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin: 0 0 0.5rem;
+      color: #5ad5eb;
+      text-shadow: 0 0 10px rgba(162, 236, 64, 0.6);
     }
-    h2.section-title {
-      margin: 0.5rem auto 0.7rem; /* tighter spacing */
-      padding: 0.5rem 1rem;
-      font-size: 2rem;
+    
+    main p {
+      font-size: 1.1rem;
+      color: #bbb;
       text-align: center;
-      color: #fff;
-      background: linear-gradient(90deg, #ff004c, #ff2222);
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      width: fit-content;
+      margin-bottom: 2rem;
     }
-    .game-list {
-      background: #111;
+
+    /* --- NEW & UPDATED STYLES FOR GAME GRID --- */
+
+    .game-grid {
+      display: grid;
+      /* Defines the grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      /* Creates responsive columns */
+      gap: 1.5rem;
+      /* Space between cards */
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 95%;
+    }
+
+    .game-card {
+      background: #222;
       border-radius: 12px;
+      overflow: hidden;
+      /* Keeps images inside the rounded corners */
+      text-decoration: none;
+      color: #fff;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px #0fa08d;
+    }
+
+    .game-card img {
       width: 100%;
-      max-width: 600px;
-      margin: 1rem auto; /* slightly reduced */
-      padding: 1.2rem 1.2rem;
-      font-weight: bold;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      height: 160px;
+      /* Fixed height for all images */
+      object-fit: cover;
+      /* Ensures images cover the area without stretching */
+      border-bottom: 3px solid #4f9188;
     }
-    .game-link {
-      display: block;
-      text-decoration: none;
-      padding: 1.2rem;
-      border-radius: 10px;
-      color: #fff;
-      font-size: 1.2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-align: center;
-    }
-    .game-link:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.5);
-    }
-    .at2 { background: rgb(34, 28, 23); }
-    .bstars { background: rgb(156, 73, 34); }
-    .soccer { background: rgb(63, 218, 97); }
-    .bitlife { background: rgb(170, 20, 20); }
-    .swc { background: rgb(11, 112, 56); }
-    .ovo { background: rgb(143, 143, 143); }
-    .drive-mad { background: rgb(23, 171, 197); }
-    footer {
-      margin-top: 1rem; /* closer to game list */
+
+    .game-info {
       padding: 1rem;
+    }
+
+    .game-info h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+    }
+
+    .game-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ccc;
+      text-align: left; /* Aligns text inside card to the left */
+    }
+
+    /* --- FOOTER --- */
+
+    footer {
+      margin-top: auto;
+      padding: 1.2rem;
       font-size: 0.9rem;
       color: #888;
       text-align: center;
+      border-top: 1px solid #333;
     }
   </style>
 </head>
+
 <body>
+
+  <nav>
+    <div class="dropdown">
+      <a href="#" class="dropdown-toggle">Games ▾</a>
+      <div class="dropdown-content">
+        <a href="action-games.html">Action Games</a>
+        <a href="platformer-games.html">Platformer Games</a>
+        <a href="sport-games.html">Sport Games</a>
+        <a href="casual-games.html">Casual Games</a>
+        <a href="car-games.html">Car Games</a>
+      </div>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="https://forms.gle/Gw7BPbMGirHdLsx49">Game Request</a>
+  </nav>
+
   <header>
-    <h1>Games</h1>
-    <p>Pick a game below to start playing</p>
-    <p>These games have been tested to make sure they work properly on iPads.</p>
+    <h1>Top Games</h1>
   </header>
 
-  <h2 class="section-title">Top Games!</h2>
+  <main>
+    <p>Pick a game below to start playing. Tested to work on iPads!</p>
 
-  <main class="game-list">
-    <a class="game-link at2" href="awesometanks2/index.html" target="_self">🎖️ Awesome Tanks 2 🛦</a>
-    <a class="game-link bstars" href="basketball-stars/index.html" target="_self">🏀 Basketball Stars 🏀</a>
-    <a class="game-link soccer" href="slsoccer/index.html" target="_self">⚽ Super Liquid Soccer 🥅</a>
-    <a class="game-link bitlife" href="bitlife/bitlife.html" target="_self">🧬 BitLife 🧬</a>
-    <a class="game-link swc" href="smallworldcup/index.html" target="_self">⚽ A Small World Cup ⚽</a>
-    <a class="game-link ovo" href="https://script.google.com/macros/s/AKfycbyDZOJq86UIFlMkKfvZtA_Sv86sKooVRpwVFS2rb38TOT8ExCt3PfR1Y5UAveVuVGlQLw/exec" target="_self">OVO</a>
-    <a class="game-link drive-mad" href="drive-mad/index.html" target="_self">🚗Drive Mad😡</a>
+    <div class="game-grid">
+
+      <a href="gdashL.html" class="game-card">
+        <img src="images/gdLite.png" alt="Geometry Dash Lite">
+        <div class="game-info">
+          <h3>Geometry Dash Lite</h3>
+          <p>A fast-paced rhythm-based platformer.</p>
+        </div>
+      </a>
+
+      <a href="bitlife/bitlife.html" class="game-card">
+        <img src="images/bitlife.jpg" alt="BitLife">
+        <div class="game-info">
+          <h3>🧬 BitLife 🧬</h3>
+          <p>A life simulation game with endless choices.</p>
+        </div>
+      </a>
+
+      <a href="smallworldcup/index.html" class="game-card">
+        <img src="images/SmallWC.webp" alt="A Small World Cup">
+        <div class="game-info">
+          <h3>⚽ A Small World Cup ⚽</h3>
+          <p>A fun, physics-based soccer game.</p>
+        </div>
+      </a>
+
+      <a href="https://script.google.com/macros/s/AKfycbyDZOJq86UIFlMkKfvZtA_Sv86sKooVRpwVFS2rb38TOT8ExCt3PfR1Y5UAveVuVGlQLw/exec" class="game-card">
+        <img src="images/ovo-game.jpg" alt="OVO">
+        <div class="game-info">
+          <h3>OVO</h3>
+          <p>A challenging and fast-paced parkour platformer.</p>
+        </div>
+      </a>
+
+      <a href="Driftboss/index.html" class="game-card">
+        <img src="images/drift.webp" alt="Drift Boss">
+        <div class="game-info">
+          <h3>🚗 Drift Boss 🤵</h3>
+          <p>Drift your car through an endless road.</p>
+        </div>
+      </a>
+
+      </div>
   </main>
 
   <footer>
-    <p>🎮 This is held together by hopes & dreams SO one mistake can destroy everything. 🎮</p>
+    <p>🎮 This site is held together by hopes & dreams — one mistake can destroy everything. 🎮</p>
   </footer>
+
+  <script>
+    // Dropdown toggle
+    const toggle = document.querySelector('.dropdown-toggle');
+    const menu = document.querySelector('.dropdown-content');
+
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      menu.classList.toggle('show');
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('show');
+      }
+    });
+  </script>
 </body>
+
 </html>
