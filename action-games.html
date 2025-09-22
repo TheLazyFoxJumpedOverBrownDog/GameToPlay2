@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apples & Bananas - Sport Games</title>
+  <title>action games</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -112,10 +112,10 @@
     header h1 {
       font-size: 3rem;
       margin: 0 0 0.5rem;
-      color: #ffffff;
+      color: #5ad5eb;
       text-shadow: 0 0 10px rgba(162, 236, 64, 0.6);
     }
-
+    
     main p.description {
       font-size: 1.1rem;
       color: #bbb;
@@ -123,11 +123,15 @@
       margin-bottom: 2rem;
     }
 
-    /* --- GAME GRID STYLES (Copied from index.html) --- */
+    /* --- UPDATED GAME GRID STYLES FOR CENTERING --- */
 
     .game-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      display: flex;
+      /* Changed from grid to flex */
+      flex-wrap: wrap;
+      /* Allows items to wrap to the next line */
+      justify-content: center;
+      /* THIS IS THE KEY: Centers items on the line */
       gap: 1.5rem;
       padding: 1rem;
       max-width: 1200px;
@@ -145,6 +149,7 @@
       flex-direction: column;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      width: 250px; /* Gives a consistent width to each card */
     }
 
     .game-card:hover {
@@ -156,11 +161,14 @@
       width: 100%;
       height: 160px;
       object-fit: cover;
-      border-bottom: 2px solid #ffffff;
+      border-bottom: 2px solid #31db94;
     }
 
     .game-info {
       padding: 1rem;
+      flex-grow: 1; /* Ensures all cards have the same height */
+      display: flex;
+      flex-direction: column;
     }
 
     .game-info h3 {
@@ -206,71 +214,30 @@
   </nav>
 
   <header>
-    <h1>🏈Sport Games⚽</h1>
+    <h1>💥Action Games💥</h1>
   </header>
 
   <main>
-    <p class="description">Test your skills with these awesome sports games!</p>
+    <p class="description">Get your adrenaline pumping with these fast-paced games!</p>
 
     <div class="game-grid">
 
-      <a href="slsoccer/index.html" class="game-card">
-        <img src="images/superliquid.jfif" alt="Super Liquid Soccer">
+      <a href="ironsnout.html" class="game-card">
+        <img src="images/ironsnout.jpg" alt="Iron Snout">
         <div class="game-info">
-          <h3>⚽ Super Liquid Soccer 🥅</h3>
-          <p>A fast-paced and chaotic soccer game with fun physics.</p>
+          <h3>🐷 Iron Snout 🐺</h3>
+          <p>A fast-paced fighting game where a little pig battles hordes of wolves.</p>
         </div>
       </a>
-
-      <a href="smallworldcup/index.html" class="game-card">
-        <img src="images/SmallWC.webp" alt="A Small World Cup">
+      
+      <a href="johnnytrigger.html" class="game-card">
+        <img src="images/johnnytrigger.avif" alt="Subway Surfers">
         <div class="game-info">
-          <h3>⚽ A Small World Cup ⚽</h3>
-          <p>Ragdoll physics meets soccer in this hilarious game.</p>
+          <h3>🤵 Johnny Trigger 🔫</h3>
+          <p>Time your shots, or you might be a victim!</p>
         </div>
       </a>
-
-      <a href="basketball-stars/index.html" class="game-card">
-        <img src="images/basketstars.jpeg" alt="Basketball Stars">
-        <div class="game-info">
-          <h3>🏀 Basketball Stars 🏀</h3>
-          <p>Dribble, shoot, and score in this 1-on-1 basketball game.</p>
-        </div>
-      </a>
-
-      <a href="retrobowl.html" class="game-card">
-        <img src="images/retrobowl.webp" alt="Retro Bowl">
-        <div class="game-info">
-          <h3>🏈 Retro Bowl 🏈</h3>
-          <p>Manage your team and win the championship in this classic.</p>
-        </div>
-      </a>
-
-      <a href="soccerrandom.html" class="game-card">
-        <img src="images/socrandom.jfif" alt="Soccer Random">
-        <div class="game-info">
-          <h3>⚽ Soccer Random ⚽</h3>
-          <p>An unpredictable and fun 2-player soccer game.</p>
-        </div>
-      </a>
-
-      <a href="boxingrandom.html" class="game-card">
-        <img src="images/boxingrandom.avif" alt="Soccer Random">
-        <div class="game-info">
-          <h3>🥊 Boxing Random 🥊</h3>
-          <p>Become the next Boxing Superstar with a twist of randomness</p>
-        </div>
-      </a>
-
-      <a href="volleyrandom.html" class="game-card">
-        <img src="images/volleyRandom.avif" alt="Volley Random">
-        <div class="game-info">
-          <h3>🏐 Vollyball Random 🏐</h3>
-          <p>An unpredictable and fun 2-player volleyball game.</p>
-        </div>
-      </a>
-
-    </div>
+      </div>
   </main>
 
   <footer>

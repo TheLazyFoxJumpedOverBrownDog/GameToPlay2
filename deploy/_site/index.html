@@ -18,29 +18,6 @@
 
     /* NAVBAR */
     nav {
-      background: #111;
-      padding: 0.8rem 2rem;
-      display: flex;
-      gap: 5rem;
-      font-weight: 600;
-      position: relative;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
-      align-items: center;
-      justify-content: center;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #31db94;
-    }
-
-    nav {
       background: linear-gradient(135deg, #0a0a0a, #151515);
       padding: 0.8rem 2rem;
       display: flex;
@@ -61,7 +38,6 @@
       transition: color 0.25s ease;
     }
 
-    /* Underline animation */
     nav a::after {
       content: "";
       position: absolute;
@@ -82,29 +58,23 @@
     }
 
     /* DROPDOWN */
-
     .dropdown {
       position: relative;
-      /* make the parent the anchor */
     }
 
     .dropdown-content {
       position: absolute;
       top: 170%;
       left: 45%;
-      /* center relative to parent */
       transform: translateX(-50%) translateY(-50px);
-      /* center horizontally */
       background: #1a1a1a;
       border-radius: 10px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
       width: 220px;
-      /* you can tweak this */
       z-index: 10;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease, transform 0.3s ease;
@@ -113,10 +83,8 @@
     .dropdown-content.show {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
-      /* keeps the slide effect */
       pointer-events: auto;
     }
-
 
     .dropdown-content a {
       padding: 0.9rem 1rem;
@@ -139,92 +107,81 @@
     header {
       padding: 2rem;
       text-align: center;
-      box-shadow: 5px 6px 5px rgba(53, 214, 166, 0.6);
     }
 
     header h1 {
-      margin: 1px;
-      font-size: 2.8rem;
       font-size: 3rem;
       margin: 0 0 0.5rem;
       color: #5ad5eb;
       text-shadow: 0 0 10px rgba(162, 236, 64, 0.6);
     }
-
-    .game-list p {
-      margin-top: 0.8rem;
-      font-size: 1rem;
+    
+    main p {
+      font-size: 1.1rem;
       color: #bbb;
       text-align: center;
-      margin: 10px;
+      margin-bottom: 2rem;
     }
 
-    h2.section-title {
-      margin: 0.5rem auto 1.5rem;
-      padding: 0.8rem 1.6rem;
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: center;
+    /* --- NEW & UPDATED STYLES FOR GAME GRID --- */
+
+    .game-grid {
+      display: grid;
+      /* Defines the grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      /* Creates responsive columns */
+      gap: 1.5rem;
+      /* Space between cards */
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 95%;
+    }
+
+    .game-card {
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      /* Keeps images inside the rounded corners */
+      text-decoration: none;
       color: #fff;
-      background: linear-gradient(90deg, #479b89, #00fa92);
-      background-size: 400% 400%;
-      border-radius: 15px;
-      width: 90%;
-    }
-
-    .game-list {
-      background: #111;
-      border-radius: 15px;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-      max-width: 650px;
-      margin: 1.5rem auto;
-      padding: 1.5rem;
-      font-weight: bold;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-    }
-
-    .game-link {
-      display: block;
-      text-decoration: none;
-      padding: 1.3rem;
-      border-radius: 12px;
-      color: #fff;
-      font-size: 1.2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
-      text-align: center;
     }
 
-    .game-list p {
-      font-size: 21px;
+    .game-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px #0fa08d;
     }
 
-    .game-link:hover {
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+    .game-card img {
+      width: 100%;
+      height: 160px;
+      /* Fixed height for all images */
+      object-fit: cover;
+      /* Ensures images cover the area without stretching */
+      border-bottom: 3px solid #4f9188;
     }
 
-    .GDLite {
-      background: rgb(30, 226, 216);
+    .game-info {
+      padding: 1rem;
     }
 
-    .bitlife {
-      background: rgb(170, 20, 20);
+    .game-info h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
     }
 
-    .swc {
-      background: rgb(11, 112, 56);
+    .game-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ccc;
+      text-align: left; /* Aligns text inside card to the left */
     }
 
-    .ovo {
-      background: rgb(143, 143, 143);
-    }
-
-    .drift-boss {
-      background: rgb(118, 126, 3);
-    }
+    /* --- FOOTER --- */
 
     footer {
       margin-top: auto;
@@ -258,16 +215,75 @@
     <h1>Top Games</h1>
   </header>
 
-  <main class="game-list">
-    <p>Pick a game below to start playing</p>
-    <p>These games have been tested to make sure they work properly on iPads.</p>
-    <a class="game-link GDLite" href="gdashL.html">Geometry Dash Lite</a>
-    <a class="game-link bitlife" href="bitlife/bitlife.html">🧬 BitLife 🧬</a>
-    <a class="game-link swc" href="smallworldcup/index.html">⚽ A Small World Cup ⚽</a>
-    <a class="game-link ovo"
-      href="https://script.google.com/macros/s/AKfycbyDZOJq86UIFlMkKfvZtA_Sv86sKooVRpwVFS2rb38TOT8ExCt3PfR1Y5UAveVuVGlQLw/exec">OVO</a>
-    <a class="game-link drift-boss" href="Driftboss/index.html">🚗 Drift Boss 🤵</a>
-    
+  <main>
+    <p>Pick a game below to start playing. Tested to work on iPads!</p>
+
+    <div class="game-grid">
+
+      <a href="gdashL.html" class="game-card">
+        <img src="images/gdLite.png" alt="Geometry Dash Lite">
+        <div class="game-info">
+          <h3>Geometry Dash Lite</h3>
+          <p>A fast-paced rhythm-based platformer.</p>
+        </div>
+      </a>
+
+      <a href="bitlife/bitlife.html" class="game-card">
+        <img src="images/bitlife.jpg" alt="BitLife">
+        <div class="game-info">
+          <h3>🧬 BitLife 🧬</h3>
+          <p>A life simulation game with endless choices.</p>
+        </div>
+      </a>
+
+      <a href="smallworldcup/index.html" class="game-card">
+        <img src="images/SmallWC.webp" alt="A Small World Cup">
+        <div class="game-info">
+          <h3>⚽ A Small World Cup ⚽</h3>
+          <p>A fun, physics-based soccer game.</p>
+        </div>
+      </a>
+
+      <a href="https://script.google.com/macros/s/AKfycbyDZOJq86UIFlMkKfvZtA_Sv86sKooVRpwVFS2rb38TOT8ExCt3PfR1Y5UAveVuVGlQLw/exec" class="game-card">
+        <img src="images/ovo-game.jpg" alt="OVO">
+        <div class="game-info">
+          <h3>OVO</h3>
+          <p>A challenging and fast-paced parkour platformer.</p>
+        </div>
+      </a>
+
+      <a href="Driftboss/index.html" class="game-card">
+        <img src="images/drift.webp" alt="Drift Boss">
+        <div class="game-info">
+          <h3>🚗 Drift Boss 🤵</h3>
+          <p>Drift your car through an endless road.</p>
+        </div>
+      </a>
+
+      <a href="drive-mad/index.html" class="game-card">
+        <img src="images/drive-mad.webp" alt="Drive Mad">
+        <div class="game-info">
+          <h3>🚗 Drive Mad 😡</h3>
+          <p>100 Levels of an Rage Inducing Game</p>
+        </div>
+      </a>
+
+            <a href="knifehit.html" class="game-card">
+        <img src="images/knifehit.jpg" alt="KnifeHit">
+        <div class="game-info">
+          <h3>🔪 Knife Hit 🔪</h3>
+          <p>Throw Knives, can you keep up the pace?</p>
+        </div>
+      </a>
+
+        <a href="idlebreakout.html" class="game-card">
+        <img src="images/idlebreakout.jpg" alt="idlebreakout">
+        <div class="game-info">
+          <h3>Idle Breakout ball</h3>
+          <p>Time makes Balls, Balls equals Money.</p>
+        </div>
+      </a>      
+      </div>
   </main>
 
   <footer>
