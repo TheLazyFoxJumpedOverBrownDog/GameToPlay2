@@ -8,9 +8,6 @@ export default defineConfig(async ({ command, mode }) => {
       rollupOptions: {
         input: {
           main: "index.html",
-          awesometanks2: "awesometanks2/index.html",
-          basketballstars: "basketball-stars/index.html",
-          bitlife: "bitlife/bitlife.html",
           404: "404.html",
         },
       },

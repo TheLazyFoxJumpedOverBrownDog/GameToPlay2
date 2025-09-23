@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>action games</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1e1e1e, #121212);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAVBAR */
+    nav {
+      background: linear-gradient(135deg, #0a0a0a, #151515);
+      padding: 0.8rem 2rem;
+      display: flex;
+      gap: 3rem;
+      font-weight: 600;
+      position: relative;
+      box-shadow: 5px 2px 2px rgba(53, 66, 63, 0.6);
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #222;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 0.8rem;
+      position: relative;
+      transition: color 0.25s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: #31db94;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #31db94;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* DROPDOWN */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 170%;
+      left: 45%;
+      transform: translateX(-50%) translateY(-50px);
+      background: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+      width: 220px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .dropdown-content.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-content a {
+      padding: 0.9rem 1rem;
+      color: #eee;
+      text-align: center;
+      display: block;
+      border-bottom: 1px solid #2a2a2a;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .dropdown-content a:hover {
+      background: #222;
+      color: #31db94;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0 0 0.5rem;
+      color: #5ad5eb;
+      text-shadow: 0 0 10px rgba(162, 236, 64, 0.6);
+    }
+    
+    main p.description {
+      font-size: 1.1rem;
+      color: #bbb;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* --- UPDATED GAME GRID STYLES FOR CENTERING --- */
+
+    .game-grid {
+      display: flex;
+      /* Changed from grid to flex */
+      flex-wrap: wrap;
+      /* Allows items to wrap to the next line */
+      justify-content: center;
+      /* THIS IS THE KEY: Centers items on the line */
+      gap: 1.5rem;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 95%;
+    }
+
+    .game-card {
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      width: 250px; /* Gives a consistent width to each card */
+    }
+
+    .game-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(49, 219, 148, 0.4);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 2px solid #31db94;
+    }
+
+    .game-info {
+      padding: 1rem;
+      flex-grow: 1; /* Ensures all cards have the same height */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .game-info h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+    }
+
+    .game-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ccc;
+      text-align: left;
+    }
+
+    /* --- FOOTER --- */
+
+    footer {
+      margin-top: auto;
+      padding: 1.2rem;
+      font-size: 0.9rem;
+      color: #888;
+      text-align: center;
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="dropdown">
+      <a href="#" class="dropdown-toggle">Games ▾</a>
+      <div class="dropdown-content">
+        <a href="action-games.html">Action Games</a>
+        <a href="platformer-games.html">Platformer Games</a>
+        <a href="sport-games.html">Sport Games</a>
+        <a href="casual-games.html">Casual Games</a>
+        <a href="car-games.html">Car Games</a>
+      </div>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="https://forms.gle/Gw7BPbMGirHdLsx49">Game Request</a>
+  </nav>
+
+  <header>
+    <h1>💥Action Games💥</h1>
+  </header>
+
+  <main>
+    <p class="description">Get your adrenaline pumping with these fast-paced games!</p>
+
+    <div class="game-grid">
+
+      <a href="ironsnout.html" class="game-card">
+        <img src="images/ironsnout.jpg" alt="Iron Snout">
+        <div class="game-info">
+          <h3>🐷 Iron Snout 🐺</h3>
+          <p>A fast-paced fighting game where a little pig battles hordes of wolves.</p>
+        </div>
+      </a>
+      
+      <a href="johnnytrigger.html" class="game-card">
+        <img src="images/johnnytrigger.avif" alt="Subway Surfers">
+        <div class="game-info">
+          <h3>🤵 Johnny Trigger 🔫</h3>
+          <p>Time your shots, or you might be a victim!</p>
+        </div>
+      </a>
+      </div>
+  </main>
+
+  <footer>
+    <p>🎮 This site is held together by hopes & dreams — one mistake can destroy everything. 🎮</p>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.dropdown-toggle');
+    const menu = document.querySelector('.dropdown-content');
+
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      menu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+
+</html>
